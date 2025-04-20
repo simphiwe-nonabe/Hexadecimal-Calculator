@@ -1,3 +1,29 @@
+function appendToDisplay(value) {
+    const display = document.getElementById('display');
+    display.value += value;
+}
+
+function clearDisplay() {
+    document.getElementById('display').value = '';
+}
+
+function calculateResult() {
+    const display = document.getElementById('display');
+    const input = display.value.split(/([\+\-\*\/])/);
+    const num1 = input[0].trim();
+    const operator = input[1] ? input[1].trim() : '';
+    const num2 = input[2] ? input[2].trim() : '';
+
+    if (num1 && num2 && operator) {
+        const result = hexCalculator(num1, num2, operator);
+        display.value = result || '';
+    }
+    else {
+        alert('Please enter a valid expression in the format: num1 operator num2 (e.g., A + B)');
+    }
+
+}
+
 function hexCalculator(num1, num2, operator) {
     
     const hexRegex = /^[0-9A-Fa-f]{1,2}$/;
