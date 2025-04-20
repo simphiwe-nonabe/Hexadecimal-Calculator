@@ -44,4 +44,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm install
+      - run: npm install cypress
       - run: npm run test
+      - name: Run Cypress tests
+        run: npx cypress run
